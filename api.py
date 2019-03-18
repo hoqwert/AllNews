@@ -18,7 +18,7 @@ def make_array(favicon):
 
 @app.route('/api/v1/resources/sites', methods=['GET'])
 def site_list():
-    conn = sqlite3.connect('NewsData.db')
+    conn = psycopg2.connect(host="localhost",database="newsdata", user="postgres", password="ho1234")
     c = conn.cursor()
     items = []
     with conn:
@@ -28,7 +28,6 @@ def site_list():
                 LEFT JOIN Site AS s ON n.SiteId= s.Id 
                 ORDER BY PubTime DESC""")
         for row in c.fetchall():
-            s = collections.OrderedDict()
             s['id'] = row[0]
             s['name'] = row[1]
             s['image'] = row[2]
