@@ -5,6 +5,7 @@ import json
 import collections
 import logging
 import pandas as pd
+import psycopg2
 
 
 app = flask.Flask(__name__)
