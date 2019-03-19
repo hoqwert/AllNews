@@ -17,7 +17,7 @@ def make_array(favicon):
 
 @app.route('/api/v1/resources/sites', methods=['GET'])
 def site_list():
-    conn = psycopg2.connect(host="localhost",database="newsdata", user="postgres", password="ho1234")
+    conn = psycopg2.connect(host="35.192.137.149",database="newsdata", user="postgres", password="ho1234")
     c = conn.cursor()
     items = []
     with conn:
