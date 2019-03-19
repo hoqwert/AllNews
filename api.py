@@ -15,7 +15,7 @@ def make_array(favicon):
     return favicon_arr
 
 
-@app.route('/api/v1/resources/sites', methods=['GET'])
+@app.route('/')
 def site_list():
     conn = psycopg2.connect(host="35.192.137.149",database="newsdata", user="postgres", password="ho1234")
     c = conn.cursor()
@@ -33,4 +33,4 @@ def site_list():
             items.append(s)
         return json.dumps(items)
 
-app.run(host='0.0.0.0', port=80, debug=True)
+app.run(host='127.0.0.1', port=8080, debug=True)
